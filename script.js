@@ -261,7 +261,16 @@ function roundRect(ctx, x, y, width, height, radius) {
   ctx.closePath();
 }
 
-function downloadResultImage() {
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+async function downloadResultImage() {
   const data = results[currentResultKey || "chopper"];
   const productData = recommendedProducts[currentResultKey || "chopper"];
   const canvas = $("#download-canvas");
@@ -298,12 +307,16 @@ function downloadResultImage() {
   ctx.textAlign = "left";
   ctx.textBaseline = "alphabetic";
 
-  ctx.fillStyle = "#e02828";
-  roundRect(ctx, 132, 136, 150, 76, 18);
-  ctx.fill();
-  ctx.fillStyle = "#fff";
-  ctx.font = "900 34px sans-serif";
-  ctx.fillText("LEGO®", 154, 186);
+  try {
+    const logo = await loadImage("./lego-logo.jpg");
+    ctx.drawImage(logo, 132, 128, 108, 108);
+  } catch (error) {
+    ctx.fillStyle = "#e02828";
+    ctx.fillRect(132, 128, 108, 108);
+    ctx.fillStyle = "#fff";
+    ctx.font = "900 24px sans-serif";
+    ctx.fillText("LEGO®", 146, 190);
+  }
 
   ctx.fillStyle = "#e02828";
   ctx.font = "900 34px sans-serif";
