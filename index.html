@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>樂高® 航海王人格測驗</title>
+  <meta name="description" content="偉大航道開測！完成 8 題樂高® 航海王人格測驗，找出你的草帽船員人格。" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app" id="app">
+    <section class="screen active" id="screen-home" aria-labelledby="home-title">
+      <div class="ocean-bg"></div>
+      <div class="card hero-card">
+        <div class="brand-row">
+          <span class="brand-mark">LEGO®</span>
+          <span class="tag">航海王人格測驗</span>
+        </div>
+        <p class="eyebrow">偉大航道開測！</p>
+        <h1 id="home-title">你是哪一位<br />草帽船員？</h1>
+        <p class="lead">夢想、夥伴、勇氣、航線，<br />你的冒險靈魂會指向哪一位草帽船員？</p>
+        <p class="body-copy">準備好登上冒險之船了嗎？完成樂高® 航海王人格測驗，找出最像你的草帽船員人格。測完別忘了截圖或下載結果頁，回到臉書活動貼文留言上傳，就有機會獲得樂高®喬巴帽周邊商品！</p>
+        <button class="primary-btn" data-go="rules">開始測驗</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-rules" aria-labelledby="rules-title">
+      <div class="card rules-card">
+        <p class="eyebrow">出航前，先看遊戲規則！</p>
+        <h2 id="rules-title">完成測驗，找出你的草帽船員人格</h2>
+        <ol class="rules-list">
+          <li>測驗共有 8 題，每題選出最像你的答案。</li>
+          <li>完成後即可查看角色結果。</li>
+          <li>請截圖或下載結果頁。</li>
+          <li>回到指定臉書活動貼文，留言上傳你的結果截圖。</li>
+          <li>就有機會獲得喬巴帽周邊商品。</li>
+        </ol>
+        <div class="prize-box">
+          <span>活動獎品</span>
+          <strong>喬巴帽周邊商品</strong>
+          <small>抽獎名額：共 200 名</small>
+        </div>
+        <button class="primary-btn" data-go="quiz">我準備好了，開始出航！</button>
+        <button class="ghost-btn" data-go="home">返回首頁</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-quiz" aria-live="polite">
+      <div class="quiz-shell">
+        <div class="quiz-topline">
+          <span id="question-count">第 1 題 / 共 8 題</span>
+          <span>航線探索中</span>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+        <article class="card question-card">
+          <p class="eyebrow" id="question-kicker">Question 01</p>
+          <h2 id="question-title"></h2>
+          <div class="answers" id="answers"></div>
+          <p class="error-text" id="error-text" role="alert"></p>
+          <div class="nav-row">
+            <button class="ghost-btn" id="back-btn">上一題</button>
+            <button class="primary-btn" id="next-btn">下一題</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-result" aria-labelledby="result-title">
+      <div class="result-wrap">
+        <article class="result-card" id="result-card">
+          <div class="result-map"></div>
+          <p class="eyebrow">你的草帽船員人格是</p>
+          <div class="avatar" id="result-avatar" aria-hidden="true"></div>
+          <h2 id="result-title"></h2>
+          <p class="subtitle" id="result-subtitle"></p>
+          <div class="keyword-row" id="result-keywords"></div>
+          <p class="result-desc" id="result-description"></p>
+          <div class="position-box">
+            <span>適合你的冒險位置</span>
+            <p id="result-position"></p>
+          </div>
+          <section class="product-section" aria-labelledby="product-title">
+            <p class="product-kicker">小樂推薦你的冒險盒組</p>
+            <h3 id="product-title">依照你的草帽船員人格，挑一款最適合出航的樂高® 航海王盒組。</h3>
+            <div class="product-grid" id="product-grid"></div>
+          </section>
+          <p class="share-note">截圖或下載你的結果頁，回到臉書活動貼文留言上傳，就有機會獲得喬巴帽周邊商品！</p>
+          <div class="result-footer">樂高® 航海王人格測驗</div>
+        </article>
+        <div class="result-actions">
+          <button class="primary-btn" id="download-btn">下載結果圖</button>
+          <button class="secondary-btn" id="facebook-btn">回臉書貼文參加抽獎</button>
+          <button class="ghost-btn" data-go="home">再測一次</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <canvas id="download-canvas" width="1080" height="1920" hidden></canvas>
+  <script src="./script.js"></script>
+</body>
+</html>
