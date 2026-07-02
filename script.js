@@ -20,12 +20,12 @@ const questions = [
 ];
 
 const results = {
-  luffy:{icon:"🍖",title:"魯夫型",subtitle:"夢想比海還大，肚子也差不多。",keywords:["熱血","自由","直覺","夥伴優先"],description:"你是船上最像太陽的人。遇到困難不會先想退路，而是先問：可以開打了嗎？你相信夢想，也相信夥伴，只要是想守護的人，就算前方是偉大航道也照樣衝。",position:"你適合站在船頭，喊出大家不敢說出口的夢想。有你在，冒險就不只是目的地，而是一場讓人想跟上的旅程。",products:[['主推盒組','75647 橡膠果實','你的夢想不只是說說而已，是從吃下那顆果實的瞬間開始改變航線。'],['延伸推薦','75642 決戰斯摩格上校','想把冒險推進到熱血對決，就從羅格鎮開始。']]},
-  zoro:{icon:"⚔️",title:"索隆型",subtitle:"路可以走錯，信念不能偏航。",keywords:["專注","可靠","冷靜","修練派"],description:"你不太愛說漂亮話，但答應的事一定做到。你習慣默默變強，也常常成為團隊最穩的後盾。缺點是偶爾會走錯路，不過沒關係，氣勢有到就好。",position:"你適合成為團隊裡最穩的戰力。話不用多，站出來的那一刻，大家就知道可以放心了。",products:[['主推盒組','75644 多利 vs. 布洛基－小花園的巨人','硬派對決與巨大戰場，最適合專注戰鬥與修練的你。'],['延伸推薦','75646 卡普的海軍戰艦','想把戰鬥格局拉到海上，就登上更大的戰場。']]},
-  nami:{icon:"🧭",title:"娜美型",subtitle:"偉大航道也要先看預算跟地圖。",keywords:["聰明","務實","觀察力強","掌控全局"],description:"你不是衝第一個的人，但你永遠知道大家該往哪裡走。你精準判斷風向，也懂得把混亂整理成計畫。沒有你，這艘船大概三天就會迷路兼破產。",position:"你適合掌握航線與節奏。當大家熱血過頭時，你就是那個把冒險拉回正軌的人。",products:[['主推盒組','75646 卡普的海軍戰艦','大船、航線與全局判斷，最適合懂得掌握方向的你。'],['延伸推薦','75645 磁鼓城之戰','想挑戰更高難度的戰場，就把策略帶進雪山。']]},
-  sanji:{icon:"🔥",title:"香吉士型",subtitle:"帥氣不是人設，是基本禮貌。",keywords:["浪漫","講究","體貼","帥氣救場"],description:"你是團隊裡最會照顧氣氛的人。外表可能瀟灑，內心其實很柔軟。你相信品味，也相信重要的人值得被好好對待。必要時，踢出去的不只是敵人，還有壞心情。",position:"你適合成為團隊裡的氣氛守護者。有你在，冒險不只熱血，還要有品味。",products:[['主推盒組','75642 決戰斯摩格上校','帥氣救場與正面對決，最適合講究登場時機的你。'],['延伸推薦','75645 磁鼓城之戰','想讓守護夥伴的氣勢升級，就前進磁鼓城。']]},
-  usopp:{icon:"🎯",title:"騙人布型",subtitle:"怕歸怕，關鍵時刻還是超可靠。",keywords:["想像力","臨場反應","嘴砲力","關鍵救援"],description:"你可能會先緊張、先吐槽、先說事情不妙，但最後還是會站出來。你的腦袋永遠有奇招，嘴上說不要，身體卻很誠實地幫大家解危。",position:"你適合在大家以為沒辦法的時候，突然拿出一個超乎預期的解法。你的厲害，常常要到最後一刻才會被看見。",products:[['主推盒組','75644 多利 vs. 布洛基－小花園的巨人','巨人戰場加上奇招變化，最適合腦洞很多的你。'],['延伸推薦','75646 卡普的海軍戰艦','想把想像力搬到大船上，就從這艘戰艦開始。']]},
-  chopper:{icon:"💙",title:"喬巴型",subtitle:"嘴上說才不開心，帽子已經開心到飛起來。",keywords:["療癒","善良","認真","守護夥伴"],description:"你是大家的補血站，也是船上最想保護別人的人。你在意夥伴的狀態，會默默記住每個人的需要。被稱讚時可能會嘴硬，但心裡早就開花。",position:"你適合成為大家最安心的存在。冒險路上有你在，就算受傷、跌倒或迷惘，也會有人願意好好接住。",products:[['主推盒組','75643 多尼多尼喬巴','最適合療癒又認真的你，把喬巴的可愛與守護力一起收藏。'],['延伸推薦','75641 Dr. 西爾爾克的藏身處','想收藏喬巴故事的起點，就走進那座雪山裡的溫暖藏身處。']]}
+  luffy:{icon:"🍖",title:"魯夫型",subtitle:"夢想比海還大，肚子也差不多。",keywords:["熱血","自由","直覺","夥伴優先"],description:"你是船上最像太陽的人。遇到困難不會先想退路，而是先問：可以開打了嗎？你相信夢想，也相信夥伴，只要是想守護的人，就算前方是偉大航道也照樣衝。",position:"你適合站在船頭，喊出大家不敢說出口的夢想。有你在，冒險就不只是目的地，而是一場讓人想跟上的旅程。",products:[["主推盒組","75647 橡膠果實","你的夢想不只是說說而已，是從吃下那顆果實的瞬間開始改變航線。"],["延伸推薦","75642 決戰斯摩格上校","想把冒險推進到熱血對決，就從羅格鎮開始。"]]},
+  zoro:{icon:"⚔️",title:"索隆型",subtitle:"路可以走錯，信念不能偏航。",keywords:["專注","可靠","冷靜","修練派"],description:"你不太愛說漂亮話，但答應的事一定做到。你習慣默默變強，也常常成為團隊最穩的後盾。缺點是偶爾會走錯路，不過沒關係，氣勢有到就好。",position:"你適合成為團隊裡最穩的戰力。話不用多，站出來的那一刻，大家就知道可以放心了。",products:[["主推盒組","75644 多利 vs. 布洛基－小花園的巨人","硬派對決與巨大戰場，最適合專注戰鬥與修練的你。"],["延伸推薦","75646 卡普的海軍戰艦","想把戰鬥格局拉到海上，就登上更大的戰場。"]]},
+  nami:{icon:"🧭",title:"娜美型",subtitle:"偉大航道也要先看預算跟地圖。",keywords:["聰明","務實","觀察力強","掌控全局"],description:"你不是衝第一個的人，但你永遠知道大家該往哪裡走。你精準判斷風向，也懂得把混亂整理成計畫。沒有你，這艘船大概三天就會迷路兼破產。",position:"你適合掌握航線與節奏。當大家熱血過頭時，你就是那個把冒險拉回正軌的人。",products:[["主推盒組","75646 卡普的海軍戰艦","大船、航線與全局判斷，最適合懂得掌握方向的你。"],["延伸推薦","75645 磁鼓城之戰","想挑戰更高難度的戰場，就把策略帶進雪山。"]]},
+  sanji:{icon:"🔥",title:"香吉士型",subtitle:"帥氣不是人設，是基本禮貌。",keywords:["浪漫","講究","體貼","帥氣救場"],description:"你是團隊裡最會照顧氣氛的人。外表可能瀟灑，內心其實很柔軟。你相信品味，也相信重要的人值得被好好對待。必要時，踢出去的不只是敵人，還有壞心情。",position:"你適合成為團隊裡的氣氛守護者。有你在，冒險不只熱血，還要有品味。",products:[["主推盒組","75642 決戰斯摩格上校","帥氣救場與正面對決，最適合講究登場時機的你。"],["延伸推薦","75645 磁鼓城之戰","想讓守護夥伴的氣勢升級，就前進磁鼓城。"]]},
+  usopp:{icon:"🎯",title:"騙人布型",subtitle:"怕歸怕，關鍵時刻還是超可靠。",keywords:["想像力","臨場反應","嘴砲力","關鍵救援"],description:"你可能會先緊張、先吐槽、先說事情不妙，但最後還是會站出來。你的腦袋永遠有奇招，嘴上說不要，身體卻很誠實地幫大家解危。",position:"你適合在大家以為沒辦法的時候，突然拿出一個超乎預期的解法。你的厲害，常常要到最後一刻才會被看見。",products:[["主推盒組","75644 多利 vs. 布洛基－小花園的巨人","巨人戰場加上奇招變化，最適合腦洞很多的你。"],["延伸推薦","75646 卡普的海軍戰艦","想把想像力搬到大船上，就從這艘戰艦開始。"]]},
+  chopper:{icon:"💙",title:"喬巴型",subtitle:"嘴上說才不開心，帽子已經開心到飛起來。",keywords:["療癒","善良","認真","守護夥伴"],description:"你是大家的補血站，也是船上最想保護別人的人。你在意夥伴的狀態，會默默記住每個人的需要。被稱讚時可能會嘴硬，但心裡早就開花。",position:"你適合成為大家最安心的存在。冒險路上有你在，就算受傷、跌倒或迷惘，也會有人願意好好接住。",products:[["主推盒組","75643 多尼多尼喬巴","最適合療癒又認真的你，把喬巴的可愛與守護力一起收藏。"],["延伸推薦","75641 Dr. 西爾爾克的藏身處","想收藏喬巴故事的起點，就走進那座雪山裡的溫暖藏身處。"]]}
 };
 
 let current=0, answers=[], order=[];
@@ -45,4 +45,32 @@ $('#download-btn').onclick=downloadResult;
 
 function wrapText(ctx,text,x,y,maxWidth,lineHeight){const words=[...text];let line='';for(const ch of words){const test=line+ch;if(ctx.measureText(test).width>maxWidth && line){ctx.fillText(line,x,y);line=ch;y+=lineHeight}else line=test}if(line)ctx.fillText(line,x,y);return y+lineHeight}
 function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
-function downloadResult(){const key=computeResult();const r=results[key];const c=$('#download-canvas');const ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);const grad=ctx.createLinearGradient(0,0,0,1920);grad.addColorStop(0,'#0b5f91');grad.addColorStop(.52,'#79cadd');grad.addColorStop(.53,'#dfe8cd');grad.addColorStop(1,'#f4dda0');ctx.fillStyle=grad;ctx.fillRect(0,0,1080,1920);ctx.fillStyle='#fff7e6';roundRect(ctx,88,88,904,1744,46);ctx.fill();ctx.strokeStyle='#c2a66f';ctx.lineWidth=6;ctx.stroke();const img=new Image();img.onload=()=>{ctx.drawImage(img,132,134,112,112);drawText()};img.onerror=drawText;img.src='./lego-logo.jpg';function drawText(){ctx.fillStyle='#e9272e';ctx.font='900 36px sans-serif';ctx.fillText('我的草帽船員人格是',132,310);ctx.textAlign='center';ctx.font='900 110px sans-serif';ctx.fillStyle='#092447';ctx.fillText(r.title,540,470);ctx.font='900 38px sans-serif';ctx.fillStyle='#126fba';let y=wrapText(ctx,r.subtitle,540,550,760,50);ctx.textAlign='left';ctx.font='700 32px sans-serif';ctx.fillStyle='#2e2e2e';y=wrapText(ctx,r.description,132,690,816,52);ctx.font='900 32px sans-serif';ctx.fillStyle='#092447';ctx.fillText(r.keywords.join(' ・ '),132,y+26);y+=92;ctx.fillStyle='#fffdf7';roundRect(ctx,132,y,816,270,26);ctx.fill();ctx.strokeStyle='#f1b5b5';ctx.lineWidth=4;ctx.stroke();ctx.fillStyle='#e9272e';ctx.font='900 30px sans-serif';ctx.fillText('小樂推薦你的冒險盒組',164,y+54);ctx.fillStyle='#092447';ctx.font='900 39px sans-serif';ctx.fillText(r.products[0][1],164,y+108);ctx.font='700 27px sans-serif';ctx.fillStyle='#36414f';wrapText(ctx,r.products[0][2],164,y+154,760,42);y+=316;ctx.fillStyle='#fff';roundRect(ctx,132,y,816,178,24);ctx.fill();ctx.strokeStyle='#e9d6b8';ctx.stroke();ctx.fillStyle='#e9272e';ctx.font='900 26px sans-serif';ctx.fillText('延伸推薦',164,y+48);ctx.fillStyle='#092447';ctx.font='900 32px sans-serif';ctx.fillText(r.products[1][1],164,y+94);ctx.font='700 24px sans-serif';ctx.fillStyle='#36414f';wrapText(ctx,r.products[1][2],164,y+132,760,36);ctx.fillStyle='#092447';roundRect(ctx,132,1634,816,132,28);ctx.fill();ctx.fillStyle='#fff';ctx.font='900 31px sans-serif';wrapText(ctx,'完成樂高® 航海王人格測驗，截圖回貼臉書活動貼文，抽喬巴帽周邊商品',164,1682,760,42);ctx.textAlign='center';ctx.fillStyle='#667';ctx.font='900 28px sans-serif';ctx.fillText('樂高® 航海王人格測驗',540,1820);const a=document.createElement('a');a.download=`樂高航海王人格測驗_${r.title}.png`;a.href=c.toDataURL('image/png');a.click();alert('結果圖已下載，記得回到臉書活動貼文留言上傳！')}}
+function downloadResult(){const key=computeResult();const r=results[key];const c=$('#download-canvas');const ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);const bg=new Image();const logo=new Image();let loaded=0;const proceed=()=>{loaded++;if(loaded<2) return;draw()};bg.onload=proceed;bg.onerror=proceed;logo.onload=proceed;logo.onerror=proceed;bg.src='./onepiece-bg.jpg';logo.src='./lego-logo.jpg';
+  function draw(){
+    if(bg.complete && bg.naturalWidth){
+      const scale=Math.max(c.width/bg.naturalWidth,c.height/bg.naturalHeight); const w=bg.naturalWidth*scale,h=bg.naturalHeight*scale; const x=(c.width-w)/2,y=(c.height-h)/2; ctx.drawImage(bg,x,y,w,h);
+      ctx.fillStyle='rgba(5,31,57,.22)'; ctx.fillRect(0,0,c.width,c.height);
+    }else{
+      const grad=ctx.createLinearGradient(0,0,0,1920); grad.addColorStop(0,'#0b5f91'); grad.addColorStop(.52,'#79cadd'); grad.addColorStop(.53,'#dfe8cd'); grad.addColorStop(1,'#f4dda0'); ctx.fillStyle=grad; ctx.fillRect(0,0,1080,1920);
+    }
+    ctx.fillStyle='rgba(255,247,230,.965)'; roundRect(ctx,88,88,904,1744,46); ctx.fill(); ctx.strokeStyle='#c2a66f'; ctx.lineWidth=6; ctx.stroke();
+    if(logo.complete && logo.naturalWidth){ ctx.drawImage(logo,132,132,112,112); }
+    ctx.fillStyle='#e9272e'; ctx.font='900 36px sans-serif'; ctx.fillText('我的草帽船員人格是',132,310);
+    ctx.textAlign='center'; ctx.font='900 110px sans-serif'; ctx.fillStyle='#092447'; ctx.fillText(r.title,540,470);
+    ctx.font='900 38px sans-serif'; ctx.fillStyle='#126fba'; let y=wrapText(ctx,r.subtitle,540,550,760,50);
+    ctx.textAlign='left'; ctx.font='700 32px sans-serif'; ctx.fillStyle='#2e2e2e'; y=wrapText(ctx,r.description,132,690,816,52);
+    ctx.font='900 32px sans-serif'; ctx.fillStyle='#092447'; ctx.fillText(r.keywords.join(' ・ '),132,y+26); y+=92;
+    ctx.fillStyle='#fffdf7'; roundRect(ctx,132,y,816,270,26); ctx.fill(); ctx.strokeStyle='#f1b5b5'; ctx.lineWidth=4; ctx.stroke();
+    ctx.fillStyle='#e9272e'; ctx.font='900 30px sans-serif'; ctx.fillText('小樂推薦你的冒險盒組',164,y+54);
+    ctx.fillStyle='#092447'; ctx.font='900 39px sans-serif'; ctx.fillText(r.products[0][1],164,y+108);
+    ctx.font='700 27px sans-serif'; ctx.fillStyle='#36414f'; wrapText(ctx,r.products[0][2],164,y+154,760,42); y+=316;
+    ctx.fillStyle='#fff'; roundRect(ctx,132,y,816,178,24); ctx.fill(); ctx.strokeStyle='#e9d6b8'; ctx.stroke();
+    ctx.fillStyle='#e9272e'; ctx.font='900 26px sans-serif'; ctx.fillText('延伸推薦',164,y+48);
+    ctx.fillStyle='#092447'; ctx.font='900 32px sans-serif'; ctx.fillText(r.products[1][1],164,y+94);
+    ctx.font='700 24px sans-serif'; ctx.fillStyle='#36414f'; wrapText(ctx,r.products[1][2],164,y+132,760,36);
+    ctx.fillStyle='#092447'; roundRect(ctx,132,1634,816,132,28); ctx.fill();
+    ctx.fillStyle='#fff'; ctx.font='900 31px sans-serif'; wrapText(ctx,'完成樂高® 航海王人格測驗，截圖回貼臉書活動貼文，抽喬巴帽周邊商品',164,1682,760,42);
+    ctx.textAlign='center'; ctx.fillStyle='#667'; ctx.font='900 28px sans-serif'; ctx.fillText('樂高® 航海王人格測驗',540,1820);
+    const a=document.createElement('a'); a.download=`樂高航海王人格測驗_${r.title}.png`; a.href=c.toDataURL('image/png'); a.click(); alert('結果圖已下載，記得回到臉書活動貼文留言上傳！');
+  }
+}
