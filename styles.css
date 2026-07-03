@@ -22,7 +22,7 @@ button{font:inherit;cursor:pointer;border:0}
   min-height:100vh;
   position:relative;
   overflow:hidden;
-  background-image:linear-gradient(180deg,rgba(4,34,63,.30),rgba(4,34,63,.38)), url('./onepiece-bg.jpg');
+  background-image:linear-gradient(180deg,rgba(4,34,63,.30),rgba(4,34,63,.38)), url('./img/onepiece-bg.jpg');
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
