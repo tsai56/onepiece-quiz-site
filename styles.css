@@ -152,3 +152,8 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
     line-height:1.30 !important;
   }
 }
+
+/* Remove homepage upper-right tag */
+#screen-home .tag{
+  display:none !important;
+}
