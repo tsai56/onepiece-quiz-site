@@ -47,8 +47,8 @@ button{font:inherit;cursor:pointer;border:0}
 }
 .card:before,.result-card:before{content:"";position:absolute;inset:14px;border:2px dashed rgba(195,156,91,.35);border-radius:calc(var(--radius) - 10px);pointer-events:none}
 .hero-card{width:min(760px,92vw);padding:44px 48px 42px;transform:rotate(-.15deg)}
-.brand-row{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:30px}
-.brand-logo{width:82px;height:82px;object-fit:contain;border-radius:0;filter:drop-shadow(0 8px 16px rgba(0,0,0,.15))}
+.brand-row{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:30px}
+.brand-logo{width:480px;max-width:66vw;height:auto;object-fit:contain;border-radius:0;filter:drop-shadow(0 8px 16px rgba(0,0,0,.12))}
 .tag{background:rgba(255,255,255,.92);border:2px solid rgba(12,45,82,.15);border-radius:999px;padding:9px 16px;color:var(--ink);font-weight:900;font-size:14px;white-space:nowrap;box-shadow:0 6px 14px rgba(8,42,79,.08)}
 .eyebrow{margin:0 0 10px;color:var(--red);font-weight:900;letter-spacing:.04em}
 h1{font-size:clamp(52px,8vw,84px);line-height:.95;margin:0 0 24px;font-weight:1000;letter-spacing:-.04em;color:var(--ink)}
@@ -103,10 +103,14 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
 .result-footer{text-align:center;color:#667;font-weight:900}
 .result-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 .ocean-bg,[class*='floating-badge'],.home-badge,.side-badge,.badge-left,.badge-right{display:none !important}
+.campaign-logo-wrap{position:fixed;top:0;left:0;z-index:3;pointer-events:none;line-height:0}
+.campaign-logo{display:block;width:min(220px,34vw);height:auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.22))}
 @media(max-width:640px){
+  .campaign-logo-wrap{top:0;left:0}
+  .campaign-logo{width:min(148px,38vw)}
   .screen{padding:104px 14px 24px;align-items:flex-start}
   .hero-card,.rules-card,.question-card,.result-card{padding:28px 24px;border-radius:26px}
-  .brand-logo{width:64px;height:64px}
+  .brand-logo{width:240px;max-width:70vw;height:auto}
   .tag{font-size:12px;padding:8px 12px}
   h1{font-size:50px}
   .lead{font-size:22px}
@@ -119,7 +123,6 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
   .hero-card{margin-top:18px}
 }
 
-
-.campaign-logo-wrap{position:fixed;top:0;left:0;z-index:3;pointer-events:none;line-height:0}
-.campaign-logo{display:block;width:min(220px,34vw);height:auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.22))}
-@media(max-width:640px){.campaign-logo-wrap{top:0;left:0}.campaign-logo{width:min(148px,38vw)}}
+/* override: character lineup logo smaller to match ref */
+.brand-logo{width:480px;max-width:66vw;height:auto;}
+@media(max-width:640px){.brand-logo{width:240px;max-width:70vw;height:auto;}}
