@@ -71,13 +71,6 @@ $('#next-btn').onclick=()=>{if(!answers[current]){$('#error-text').textContent='
 $('#back-btn').onclick=()=>{if(current>0){current--;renderQuestion()}};
 $('#facebook-btn').onclick=()=>window.open(FACEBOOK_POST_URL,'_blank');
 
-document.addEventListener('click', function(e){
-  const btn = e.target.closest('#download-btn');
-  if(!btn) return;
-  e.preventDefault();
-  e.stopPropagation();
-  downloadResult();
-});
 
 function loadImage(src){
   return new Promise((resolve, reject) => {
@@ -173,19 +166,9 @@ function drawResultArt(ctx, img, centerX, topY, maxWidth, maxHeight){
 function downloadResult(){
   const key = computeResult();
   const file = DOWNLOAD_RESULT_FILES[key];
-  if(!file){
-    alert('找不到對應的結果圖，請重新再試一次。');
-    return;
-  }
-
-  const opened = window.open(file.src, '_blank', 'noopener');
-  if(opened){
-    setTimeout(() => {
-      alert('結果圖已開啟新分頁，記得回到臉書活動貼文留言上傳！');
-    }, 120);
-  }else{
-    alert('瀏覽器阻擋新分頁，請允許彈出視窗後再試一次。');
-  }
+  if(!file) return;
+  window.location.href = file.src;
 }
+
 
 
