@@ -18,6 +18,32 @@ const results={
   usopp:{icon:"🎯",title:"騙人布型",subtitle:"怕歸怕，關鍵時刻還是超可靠。",keywords:["想像力","臨場反應","嘴砲力","關鍵救援"],description:"你可能會先緊張、先吐槽、先說事情不妙，但最後還是會站出來。你的腦袋永遠有奇招，嘴上說不要，身體卻很誠實地幫大家解危。",position:"你適合在大家以為沒辦法的時候，突然拿出一個超乎預期的解法。你的厲害，常常要到最後一刻才會被看見。",products:[["主推盒組","75644 多利 vs. 布洛基－小花園的巨人","巨人戰場加上奇招變化，最適合腦洞很多的你。"],["延伸推薦","75646 卡普的海軍戰艦","想把想像力搬到大船上，就從這艘戰艦開始。"]]},
   chopper:{icon:"💙",title:"喬巴型",subtitle:"嘴上說才不開心，帽子已經開心到飛起來。",keywords:["療癒","善良","認真","守護夥伴"],description:"你是大家的補血站，也是船上最想保護別人的人。你在意夥伴的狀態，會默默記住每個人的需要。被稱讚時可能會嘴硬，但心裡早就開花。",position:"你適合成為大家最安心的存在。冒險路上有你在，就算受傷、跌倒或迷惘，也會有人願意好好接住。",products:[["主推盒組","75643 多尼多尼喬巴","最適合療癒又認真的你，把喬巴的可愛與守護力一起收藏。"],["延伸推薦","75641 Dr. 西爾爾克的藏身處","想收藏喬巴故事的起點，就走進那座雪山裡的溫暖藏身處。"]]}
 };
+
+const RESULT_ART = {
+  luffy: './img/result-luffy.png',
+  usopp: './img/result-usopp.png',
+  nami: './img/result-nami.png',
+  chopper: './img/result-chopper.png',
+  sanji: './img/result-sanji.png',
+  zoro: './img/result-zoro.png'
+};
+
+const RESULT_ART_IMAGES = {};
+Object.entries(RESULT_ART).forEach(([key, src]) => {
+  const img = new Image();
+  img.src = src;
+  RESULT_ART_IMAGES[key] = img;
+});
+
+const DOWNLOAD_RESULT_FILES = {
+  luffy: { src: './img/result-luffy-final.jpg', filename: '樂高航海王人格測驗_魯夫型.jpg' },
+  zoro: { src: './img/result-zoro-final.jpg', filename: '樂高航海王人格測驗_索隆型.jpg' },
+  nami: { src: './img/result-nami-final.jpg', filename: '樂高航海王人格測驗_娜美型.jpg' },
+  sanji: { src: './img/result-sanji-final.jpg', filename: '樂高航海王人格測驗_香吉士型.jpg' },
+  usopp: { src: './img/result-usopp-final.jpg', filename: '樂高航海王人格測驗_騙人布型.jpg' },
+  chopper: { src: './img/result-chopper-final.jpg', filename: '樂高航海王人格測驗_喬巴型.jpg' }
+};
+
 let current=0, answers=[], order=[];
 const $=sel=>document.querySelector(sel);
 const screens={home:$('#screen-home'),rules:$('#screen-rules'),quiz:$('#screen-quiz'),result:$('#screen-result')};
@@ -26,17 +52,140 @@ function shuffle(arr){return [...arr].sort(()=>Math.random()-.5)}
 function startQuiz(){current=0;answers=[];order=questions.map(q=>shuffle(q.a));show('quiz')}
 function renderQuestion(){const q=questions[current];$('#question-count').textContent=`第 ${current+1} 題 / 共 8 題`;$('#question-kicker').textContent=`Question ${String(current+1).padStart(2,'0')}`;$('#question-title').textContent=q.q;$('#progress-fill').style.width=`${((current+1)/questions.length)*100}%`;$('#error-text').textContent='';const ans=$('#answers');ans.innerHTML='';order[current].forEach((item,i)=>{const b=document.createElement('button');b.className='answer-btn'+(answers[current]===item[0]?' selected':'');b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${item[1]}</span>`;b.onclick=()=>{answers[current]=item[0];renderQuestion()};ans.appendChild(b)});$('#back-btn').style.visibility=current===0?'hidden':'visible';$('#next-btn').textContent=current===questions.length-1?'查看我的船員人格':'下一題'}
 function computeResult(){const count={luffy:0,zoro:0,nami:0,sanji:0,usopp:0,chopper:0};answers.forEach(a=>count[a]++);const max=Math.max(...Object.values(count));const tied=Object.keys(count).filter(k=>count[k]===max);return tied.length===1?tied[0]:answers[answers.length-1]}
-function renderResult(){const key=computeResult();const r=results[key];$('#result-avatar').textContent=r.icon;$('#result-title').textContent=r.title;$('#result-subtitle').textContent=r.subtitle;$('#result-description').textContent=r.description;$('#result-position').textContent=r.position;$('#result-keywords').innerHTML=r.keywords.map(k=>`<span>${k}</span>`).join('');$('#product-grid').innerHTML=r.products.map((p,i)=>`<div class="product-card ${i===0?'primary':''}"><div class="product-label">${p[0]}</div><h4>${p[1]}</h4><p>${p[2]}</p></div>`).join('');show('result')}
-document.querySelectorAll('[data-go]').forEach(btn=>btn.addEventListener('click',()=>{const to=btn.dataset.go;if(to==='quiz')startQuiz();else show(to)}));
+function renderResult(){const key=computeResult();const r=results[key];$('#result-avatar').textContent=r.icon;$('#result-title').textContent=r.title;$('#result-subtitle').textContent=r.subtitle;$('#result-description').textContent=r.description;$('#result-position').textContent=r.position;$('#result-keywords').innerHTML=['<span class="keyword-label">人格關鍵字</span>',...r.keywords.map(k=>`<span>${k}</span>`)].join('');show('result')}
+
+
+document.addEventListener('click', function(e){
+  const navBtn = e.target.closest('[data-go]');
+  if(!navBtn) return;
+  e.preventDefault();
+  const to = navBtn.dataset.go;
+  if(to === 'quiz'){
+    startQuiz();
+  }else{
+    show(to);
+  }
+});
+
 $('#next-btn').onclick=()=>{if(!answers[current]){$('#error-text').textContent='請先選擇一個答案，再繼續出航！';return}if(current<questions.length-1){current++;renderQuestion()}else renderResult()};
 $('#back-btn').onclick=()=>{if(current>0){current--;renderQuestion()}};
 $('#facebook-btn').onclick=()=>window.open(FACEBOOK_POST_URL,'_blank');
-$('#download-btn').onclick=downloadResult;
-function wrapText(ctx,text,x,y,maxWidth,lineHeight){const words=[...text];let line='';for(const ch of words){const test=line+ch;if(ctx.measureText(test).width>maxWidth&&line){ctx.fillText(line,x,y);line=ch;y+=lineHeight}else line=test}if(line)ctx.fillText(line,x,y);return y+lineHeight}
-function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
-function downloadResult(){const key=computeResult();const r=results[key];const c=$('#download-canvas');const ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);const bg=new Image();const logo=new Image();let loaded=0;const proceed=()=>{loaded++;if(loaded<2)return;draw()};bg.onload=proceed;bg.onerror=proceed;logo.onload=proceed;logo.onerror=proceed;bg.src='./img/onepiece-bg.jpg';logo.src='./img/6.png';
-function draw(){if(bg.complete&&bg.naturalWidth){const scale=Math.max(c.width/bg.naturalWidth,c.height/bg.naturalHeight);const w=bg.naturalWidth*scale,h=bg.naturalHeight*scale;const x=(c.width-w)/2,y=(c.height-h)/2;ctx.drawImage(bg,x,y,w,h);ctx.fillStyle='rgba(5,31,57,.22)';ctx.fillRect(0,0,c.width,c.height)}else{const grad=ctx.createLinearGradient(0,0,0,1920);grad.addColorStop(0,'#0b5f91');grad.addColorStop(.52,'#79cadd');grad.addColorStop(.53,'#dfe8cd');grad.addColorStop(1,'#f4dda0');ctx.fillStyle=grad;ctx.fillRect(0,0,1080,1920)}
-ctx.fillStyle='rgba(255,247,230,.965)';roundRect(ctx,88,88,904,1744,46);ctx.fill();ctx.strokeStyle='#c2a66f';ctx.lineWidth=6;ctx.stroke();
-if(logo.complete&&logo.naturalWidth){const maxW=480,maxH=210;const scale=Math.min(maxW/logo.naturalWidth,maxH/logo.naturalHeight);const w=logo.naturalWidth*scale,h=logo.naturalHeight*scale;ctx.drawImage(logo,132,126,w,h)}
-ctx.fillStyle='#e9272e';ctx.font='900 36px sans-serif';ctx.fillText('我的草帽船員人格是',132,330);ctx.textAlign='center';ctx.font='900 110px sans-serif';ctx.fillStyle='#092447';ctx.fillText(r.title,540,490);ctx.font='900 38px sans-serif';ctx.fillStyle='#126fba';let y=wrapText(ctx,r.subtitle,540,570,760,50);ctx.textAlign='left';ctx.font='700 32px sans-serif';ctx.fillStyle='#2e2e2e';y=wrapText(ctx,r.description,132,710,816,52);ctx.font='900 32px sans-serif';ctx.fillStyle='#092447';ctx.fillText(r.keywords.join(' ・ '),132,y+26);y+=92;ctx.fillStyle='#fffdf7';roundRect(ctx,132,y,816,270,26);ctx.fill();ctx.strokeStyle='#f1b5b5';ctx.lineWidth=4;ctx.stroke();ctx.fillStyle='#e9272e';ctx.font='900 30px sans-serif';ctx.fillText('小樂推薦你的冒險盒組',164,y+54);ctx.fillStyle='#092447';ctx.font='900 39px sans-serif';ctx.fillText(r.products[0][1],164,y+108);ctx.font='700 27px sans-serif';ctx.fillStyle='#36414f';wrapText(ctx,r.products[0][2],164,y+154,760,42);y+=316;ctx.fillStyle='#fff';roundRect(ctx,132,y,816,178,24);ctx.fill();ctx.strokeStyle='#e9d6b8';ctx.stroke();ctx.fillStyle='#e9272e';ctx.font='900 26px sans-serif';ctx.fillText('延伸推薦',164,y+48);ctx.fillStyle='#092447';ctx.font='900 32px sans-serif';ctx.fillText(r.products[1][1],164,y+94);ctx.font='700 24px sans-serif';ctx.fillStyle='#36414f';wrapText(ctx,r.products[1][2],164,y+132,760,36);ctx.fillStyle='#092447';roundRect(ctx,132,1634,816,132,28);ctx.fill();ctx.fillStyle='#fff';ctx.font='900 31px sans-serif';wrapText(ctx,'完成樂高® 航海王人格測驗，截圖回貼臉書活動貼文，抽喬巴帽周邊商品',164,1682,760,42);ctx.textAlign='center';ctx.fillStyle='#667';ctx.font='900 28px sans-serif';ctx.fillText('樂高® 航海王人格測驗',540,1820);const a=document.createElement('a');a.download=`樂高航海王人格測驗_${r.title}.png`;a.href=c.toDataURL('image/png');a.click();alert('結果圖已下載，記得回到臉書活動貼文留言上傳！')}
+
+document.addEventListener('click', function(e){
+  const btn = e.target.closest('#download-btn');
+  if(!btn) return;
+  e.preventDefault();
+  e.stopPropagation();
+  downloadResult();
+});
+
+function loadImage(src){
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error(`圖片載入失敗: ${src}`));
+    img.src = src;
+  });
 }
+
+function drawTextLines(ctx, text, x, y, maxWidth, lineHeight, align='left'){
+  const chars = Array.from(String(text || ''));
+  const lines = [];
+  let line = '';
+  for(const ch of chars){
+    const test = line + ch;
+    if(ctx.measureText(test).width > maxWidth && line){
+      lines.push(line);
+      line = ch;
+    }else{
+      line = test;
+    }
+  }
+  if(line) lines.push(line);
+  ctx.textAlign = align;
+  lines.forEach((ln, i) => ctx.fillText(ln, x, y + i * lineHeight));
+  return { lines, bottom: y + Math.max(lines.length, 1) * lineHeight };
+}
+
+function measureTextBlock(ctx, text, maxWidth){
+  const chars = Array.from(String(text || ''));
+  const lines = [];
+  let line = '';
+  for(const ch of chars){
+    const test = line + ch;
+    if(ctx.measureText(test).width > maxWidth && line){
+      lines.push(line);
+      line = ch;
+    }else{
+      line = test;
+    }
+  }
+  if(line) lines.push(line);
+  return lines;
+}
+
+function drawRoundedBox(ctx, x, y, w, h, r, fill, stroke, lineWidth=2){
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+  if(fill){
+    ctx.fillStyle = fill;
+    ctx.fill();
+  }
+  if(stroke){
+    ctx.strokeStyle = stroke;
+    ctx.lineWidth = lineWidth;
+    ctx.stroke();
+  }
+}
+
+function drawPill(ctx, x, y, text, opts={}){
+  const padX = opts.padX ?? 20;
+  const h = opts.height ?? 58;
+  const radius = opts.radius ?? 28;
+  ctx.font = opts.font ?? '900 26px sans-serif';
+  const textW = ctx.measureText(text).width;
+  const w = textW + padX * 2;
+  drawRoundedBox(ctx, x, y, w, h, radius, opts.fill ?? '#fff', opts.stroke ?? '#d0deef', opts.lineWidth ?? 3);
+  ctx.fillStyle = opts.color ?? '#092447';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(text, x + w / 2, y + h / 2 + (opts.textOffsetY ?? 1));
+  ctx.textBaseline = 'alphabetic';
+  return w;
+}
+
+function drawResultArt(ctx, img, centerX, topY, maxWidth, maxHeight){
+  const ratio = Math.min(maxWidth / img.width, maxHeight / img.height);
+  const w = img.width * ratio;
+  const h = img.height * ratio;
+  const x = centerX - w / 2;
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(img, x, topY, w, h);
+  return { x, y: topY, w, h, bottom: topY + h };
+}
+
+function downloadResult(){
+  const key = computeResult();
+  const file = DOWNLOAD_RESULT_FILES[key];
+  if(!file){
+    alert('找不到對應的結果圖，請重新再試一次。');
+    return;
+  }
+
+  const opened = window.open(file.src, '_blank', 'noopener');
+  if(opened){
+    setTimeout(() => {
+      alert('結果圖已開啟新分頁，記得回到臉書活動貼文留言上傳！');
+    }, 120);
+  }else{
+    alert('瀏覽器阻擋新分頁，請允許彈出視窗後再試一次。');
+  }
+}
+
+
