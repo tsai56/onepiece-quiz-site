@@ -28,6 +28,15 @@ const RESULT_ART = {
   zoro: './img/result-zoro-card.png'
 };
 
+const RESULT_ART_MOBILE = {
+  luffy: './img/result-luffy-card-mobile.png',
+  usopp: './img/result-usopp-card-mobile.png',
+  nami: './img/result-nami-card-mobile.png',
+  chopper: './img/result-chopper-card-mobile.png',
+  sanji: './img/result-sanji-card-mobile.png',
+  zoro: './img/result-zoro-card-mobile.png'
+};
+
 const RESULT_ART_IMAGES = {};
 Object.entries(RESULT_ART).forEach(([key, src]) => {
   const img = new Image();
@@ -55,7 +64,7 @@ function computeResult(){const count={luffy:0,zoro:0,nami:0,sanji:0,usopp:0,chop
 function renderResult(){
   const key=computeResult();
   const r=results[key];
-  const artSrc = RESULT_ART[key];
+  const artSrc = window.matchMedia('(max-width: 768px)').matches ? (RESULT_ART_MOBILE[key] || RESULT_ART[key]) : RESULT_ART[key];
   const avatar = $('#result-avatar');
   avatar.innerHTML = artSrc ? `<img src="${artSrc}" alt="${r.title}角色圖">` : '';
   $('#result-title').textContent=r.title;

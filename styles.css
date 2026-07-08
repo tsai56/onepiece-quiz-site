@@ -315,3 +315,42 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
     margin-bottom: 14px !important;
   }
 }
+
+
+/* === Mobile-only final fix: make result character art visually about 2x larger and reduce top/bottom spacing === */
+@media (max-width: 768px){
+  #screen-result .result-card{
+    padding-top: 26px !important;
+  }
+  #screen-result .result-card > .eyebrow{
+    margin: 0 0 6px !important;
+  }
+  #screen-result #result-avatar.avatar{
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 auto 4px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  #screen-result #result-avatar.avatar img{
+    width: 88% !important;
+    max-width: 88% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  #screen-result .result-card h2{
+    margin-top: 0 !important;
+    margin-bottom: 4px !important;
+  }
+  #screen-result .result-card .subtitle{
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+  }
+}
