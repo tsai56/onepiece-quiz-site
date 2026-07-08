@@ -231,3 +231,13 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
 .result-card > .eyebrow{margin:0 0 9px !important;}
 .result-card .avatar{margin:4px 0 9px !important;}
 @media (max-width:768px){.result-card > .eyebrow{margin:0 0 7px !important;} .result-card .avatar{margin:3px 0 7px !important;}}
+
+
+/* Further reduce vertical spacing around result avatar to about 70% smaller than original */
+.result-card > .eyebrow{margin:0 0 5px !important;}
+.result-card .avatar{margin:2px 0 5px !important;}
+@media (max-width:768px){.result-card > .eyebrow{margin:0 0 4px !important;} .result-card .avatar{margin:2px 0 4px !important;}}
+
+
+/* remove bottom result footer title as requested */
+.result-footer{display:none !important;}
