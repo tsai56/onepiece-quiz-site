@@ -276,3 +276,42 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
     margin-bottom: 10px !important;
   }
 }
+
+
+/* mobile-only refinement: enlarge result character image to match ref, center it, and tighten vertical spacing */
+@media (max-width: 768px){
+  .result-card > .eyebrow{
+    margin: 0 0 8px !important;
+  }
+
+  .result-card .avatar{
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 0 auto 8px !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .result-card .avatar img{
+    width: 84% !important;
+    max-width: 84% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .result-card h2{
+    margin-top: 0 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .result-card .subtitle{
+    margin-top: 0 !important;
+    margin-bottom: 14px !important;
+  }
+}
