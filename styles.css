@@ -241,3 +241,38 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
 
 /* remove bottom result footer title as requested */
 .result-footer{display:none !important;}
+
+/* mobile-only update: enlarge result character image by 70% and reduce vertical spacing around it by 70% */
+@media (max-width: 768px){
+  .result-card > .eyebrow{
+    margin: 0 0 1px !important;
+  }
+
+  .result-card .avatar{
+    min-height: 374px !important;
+    margin: 0 0 1px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .result-card .avatar img{
+    height: 374px !important;
+    max-height: 374px !important;
+    width: auto !important;
+    max-width: 88% !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .result-card h2{
+    margin-top: 0 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .result-card .subtitle{
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+  }
+}
