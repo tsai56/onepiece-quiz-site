@@ -20,12 +20,12 @@ const results={
 };
 
 const RESULT_ART = {
-  luffy: './img/result-luffy.png',
-  usopp: './img/result-usopp.png',
-  nami: './img/result-nami.png',
-  chopper: './img/result-chopper.png',
-  sanji: './img/result-sanji.png',
-  zoro: './img/result-zoro.png'
+  luffy: './img/result-luffy-card.png',
+  usopp: './img/result-usopp-card.png',
+  nami: './img/result-nami-card.png',
+  chopper: './img/result-chopper-card.png',
+  sanji: './img/result-sanji-card.png',
+  zoro: './img/result-zoro-card.png'
 };
 
 const RESULT_ART_IMAGES = {};
@@ -52,7 +52,25 @@ function shuffle(arr){return [...arr].sort(()=>Math.random()-.5)}
 function startQuiz(){current=0;answers=[];order=questions.map(q=>shuffle(q.a));show('quiz')}
 function renderQuestion(){const q=questions[current];$('#question-count').textContent=`第 ${current+1} 題 / 共 8 題`;$('#question-kicker').textContent=`Question ${String(current+1).padStart(2,'0')}`;$('#question-title').textContent=q.q;$('#progress-fill').style.width=`${((current+1)/questions.length)*100}%`;$('#error-text').textContent='';const ans=$('#answers');ans.innerHTML='';order[current].forEach((item,i)=>{const b=document.createElement('button');b.className='answer-btn'+(answers[current]===item[0]?' selected':'');b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${item[1]}</span>`;b.onclick=()=>{answers[current]=item[0];renderQuestion()};ans.appendChild(b)});$('#back-btn').style.visibility=current===0?'hidden':'visible';$('#next-btn').textContent=current===questions.length-1?'查看我的船員人格':'下一題'}
 function computeResult(){const count={luffy:0,zoro:0,nami:0,sanji:0,usopp:0,chopper:0};answers.forEach(a=>count[a]++);const max=Math.max(...Object.values(count));const tied=Object.keys(count).filter(k=>count[k]===max);return tied.length===1?tied[0]:answers[answers.length-1]}
-function renderResult(){const key=computeResult();const r=results[key];$('#result-avatar').textContent=r.icon;$('#result-title').textContent=r.title;$('#result-subtitle').textContent=r.subtitle;$('#result-description').textContent=r.description;$('#result-position').textContent=r.position;$('#result-keywords').innerHTML=['<span class="keyword-label">人格關鍵字</span>',...r.keywords.map(k=>`<span>${k}</span>`)].join('');show('result')}
+function renderResult(){
+  const key=computeResult();
+  const r=results[key];
+  const artSrc = RESULT_ART[key];
+  const avatar = $('#result-avatar');
+  avatar.innerHTML = artSrc ? `<img src="${artSrc}" alt="${r.title}角色圖">` : '';
+  $('#result-title').textContent=r.title;
+  $('#result-subtitle').textContent=r.subtitle;
+  $('#result-description').textContent=r.description;
+  $('#result-position').textContent=r.position;
+  $('#result-keywords').innerHTML=['<span class="keyword-label">人格關鍵字</span>',...r.keywords.map(k=>`<span>${k}</span>`)].join('');
+  const downloadLink = $('#download-btn');
+  if(downloadLink && DOWNLOAD_RESULT_FILES[key]){
+    downloadLink.href = DOWNLOAD_RESULT_FILES[key].src;
+    downloadLink.target = '_blank';
+    downloadLink.rel = 'noopener';
+  }
+  show('result')
+}
 
 
 document.addEventListener('click', function(e){
