@@ -298,3 +298,28 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
     width:100%;
   }
 }
+
+
+/* Rules title: only text break and line-height aligned with homepage copy */
+#rules-title{line-height:1.28 !important;}
+@media(max-width:640px){
+  #rules-title{line-height:1.30 !important;}
+}
+
+
+/* 題目頁標題行距比照首頁 */
+#question-title{
+  line-height:1.28 !important;
+}
+@media(max-width:640px){
+  #question-title{
+    line-height:1.30 !important;
+  }
+}
+
+
+/* Homepage: reduce spacing between top character image and top of content box by 50% */
+#screen-home .hero-card{padding-top:22px !important;}
+@media(max-width:640px){
+  #screen-home .hero-card{padding-top:14px !important;}
+}
