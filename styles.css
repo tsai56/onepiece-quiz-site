@@ -323,3 +323,114 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
 @media(max-width:640px){
   #screen-home .hero-card{padding-top:14px !important;}
 }
+
+
+/* 2026-07-09: enlarge result-page character image by 100% */
+.result-card .avatar{min-height:680px !important;}
+.result-card .avatar img{height:680px !important;max-height:680px !important;width:auto !important;max-width:92% !important;}
+@media (max-width:768px){
+  .result-card .avatar{min-height:440px !important;}
+  .result-card .avatar img{height:440px !important;max-height:440px !important;width:auto !important;max-width:92% !important;}
+}
+
+
+/* Result page only: reduce vertical spacing around character image by 70% */
+#screen-result .result-card > .eyebrow{
+  margin-bottom:3px !important;
+}
+#screen-result .result-card .avatar{
+  margin-top:1px !important;
+  margin-bottom:2px !important;
+  min-height:auto !important;
+  line-height:0 !important;
+}
+#screen-result .result-card .avatar img{
+  display:block !important;
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+@media (max-width:768px){
+  #screen-result .result-card > .eyebrow{
+    margin-bottom:2px !important;
+  }
+  #screen-result .result-card .avatar{
+    margin-top:1px !important;
+    margin-bottom:1px !important;
+    min-height:auto !important;
+    line-height:0 !important;
+  }
+}
+
+
+/* Result page spacing fix: collapse only the vertical blank space around character image */
+#screen-result .result-card > .eyebrow{
+  margin-bottom:4px !important;
+}
+#screen-result .result-card .avatar{
+  min-height:0 !important;
+  height:auto !important;
+  max-height:none !important;
+  margin-top:0 !important;
+  margin-bottom:4px !important;
+  padding:0 !important;
+  line-height:0 !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:flex-start !important;
+  overflow:visible !important;
+}
+#screen-result .result-card .avatar img{
+  display:block !important;
+  width:50% !important;
+  max-width:540px !important;
+  min-width:260px !important;
+  height:auto !important;
+  max-height:none !important;
+  margin:0 auto !important;
+  object-fit:contain !important;
+}
+#screen-result .result-card h2{
+  margin-top:0 !important;
+}
+@media (max-width:768px){
+  #screen-result .result-card > .eyebrow{
+    margin-bottom:3px !important;
+  }
+  #screen-result .result-card .avatar{
+    min-height:0 !important;
+    height:auto !important;
+    max-height:none !important;
+    margin-top:0 !important;
+    margin-bottom:3px !important;
+    padding:0 !important;
+    line-height:0 !important;
+    align-items:flex-start !important;
+  }
+  #screen-result .result-card .avatar img{
+    width:50% !important;
+    max-width:270px !important;
+    min-width:180px !important;
+    height:auto !important;
+    max-height:none !important;
+    margin:0 auto !important;
+  }
+}
+
+
+/* 2026-07-09: enlarge result-page avatar by 50% while keeping text spacing unchanged */
+#screen-result .result-card .avatar img{
+  width:75% !important;
+  max-width:810px !important;
+  min-width:390px !important;
+  height:auto !important;
+  max-height:none !important;
+}
+@media (max-width:768px){
+  #screen-result .result-card .avatar img{
+    width:75% !important;
+    max-width:405px !important;
+    min-width:270px !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+}
