@@ -434,3 +434,74 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
     max-height:none !important;
   }
 }
+
+
+
+/* Rules page prize image — strict ref match.
+   Only the Chopper hat image size and position are adjusted. */
+#screen-rules .prize-box--with-image{
+  display:grid !important;
+  grid-template-columns:220px 1fr !important;
+  gap:12px !important;
+  align-items:center !important;
+}
+#screen-rules .prize-box-media{
+  display:flex !important;
+  justify-content:flex-start !important;
+  align-items:center !important;
+  min-height:220px !important;
+  padding-left:6px !important;
+}
+#screen-rules .prize-box-media img{
+  display:block !important;
+  height:210px !important;
+  width:auto !important;
+  max-width:none !important;
+  flex:0 0 auto !important;
+}
+#screen-rules .prize-box-body{
+  display:grid !important;
+  gap:6px !important;
+  align-content:center !important;
+}
+/* Hide any accidental duplicate prize image outside the prize box */
+#screen-rules .rules-card > img,
+#screen-rules .rules-list + img,
+#screen-rules .rules-list ~ img:not(.brand-logo):not(.campaign-logo){
+  display:none !important;
+}
+@media (max-width:640px){
+  #screen-rules .prize-box--with-image{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+  #screen-rules .prize-box-media{
+    min-height:auto !important;
+    padding-left:0 !important;
+    justify-content:center !important;
+  }
+  #screen-rules .prize-box-media img{
+    height:160px !important;
+    width:auto !important;
+  }
+  #screen-rules .prize-box-body{
+    text-align:center !important;
+  }
+}
+
+
+/* Homepage only: reduce top/bottom whitespace around top character image by 70% */
+#screen-home .hero-card{
+  padding-top:13px !important;
+}
+#screen-home .brand-row{
+  margin-bottom:9px !important;
+}
+@media(max-width:640px){
+  #screen-home .hero-card{
+    padding-top:8px !important;
+  }
+  #screen-home .brand-row{
+    margin-bottom:5px !important;
+  }
+}
