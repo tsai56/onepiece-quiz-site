@@ -505,3 +505,11 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
     margin-bottom:5px !important;
   }
 }
+
+
+/* Keep website background fixed when switching pages */
+.app{
+  background-attachment: fixed !important;
+  background-position: center center !important;
+  background-size: cover !important;
+}
