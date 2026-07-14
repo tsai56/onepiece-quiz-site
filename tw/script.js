@@ -65,7 +65,7 @@ function renderResult(){
   $('#result-keywords').innerHTML=['<span class="keyword-label">人格關鍵字</span>',...r.keywords.map(k=>`<span>${k}</span>`)].join('');
   const shareNote = $('#result-share-note');
   if(shareNote){
-    shareNote.textContent = `截圖你的${r.title}結果，回到粉絲專頁貼文留言上傳，就有機會獲得樂高®喬巴帽周邊商品`;
+    shareNote.textContent = `出示你的${r.title}結果圖，至樂高授權專賣店®把樂高®喬巴帽帶回家！`;
   }
   const downloadLink = $('#download-btn');
   if(downloadLink && DOWNLOAD_RESULT_FILES[key]){
@@ -91,7 +91,8 @@ document.addEventListener('click', function(e){
 
 $('#next-btn').onclick=()=>{if(!answers[current]){$('#error-text').textContent='請先選擇一個答案，再繼續出航！';return}if(current<questions.length-1){current++;renderQuestion()}else renderResult()};
 $('#back-btn').onclick=()=>{if(current>0){current--;renderQuestion()}};
-$('#facebook-btn').onclick=()=>window.open(FACEBOOK_POST_URL,'_blank');
+const facebookBtn = $('#facebook-btn');
+if(facebookBtn) facebookBtn.onclick=()=>window.open(FACEBOOK_POST_URL,'_blank');
 
 
 function loadImage(src){
