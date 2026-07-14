@@ -535,3 +535,14 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
     display:block !important;
   }
 }
+
+
+/* Mobile only: break prize title after 活動獎品： */
+.mobile-prize-break{
+  display:none;
+}
+@media(max-width:640px){
+  .mobile-prize-break{
+    display:block;
+  }
+}
