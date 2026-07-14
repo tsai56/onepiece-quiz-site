@@ -521,3 +521,17 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
     line-height:1.17 !important;
   }
 }
+
+
+/* Mobile only: use dedicated homepage copy with custom line breaks */
+.body-copy-mobile{
+  display:none;
+}
+@media(max-width:640px){
+  #screen-home .body-copy-desktop{
+    display:none !important;
+  }
+  #screen-home .body-copy-mobile{
+    display:block !important;
+  }
+}
