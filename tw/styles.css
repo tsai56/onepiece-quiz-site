@@ -518,6 +518,6 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
 /* Mobile only: reduce homepage body-copy line-height by 1/2 */
 @media(max-width:640px){
   #screen-home .body-copy{
-    line-height:.9 !important;
+    line-height:1.17 !important;
   }
 }
