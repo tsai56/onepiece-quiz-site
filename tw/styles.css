@@ -546,3 +546,9 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
     display:block;
   }
 }
+
+
+/* Rules page: only change prize name color */
+#screen-rules .prize-name-red{
+  color:#ff0000;
+}
