@@ -219,3 +219,6 @@
 - 網頁版喬巴結果頁「適合你的冒險位置」文案已依指定位置斷行；其他內容不變。
 
 - 網頁版活動規則頁：僅將「樂高®喬巴帽」改為紅色 #ff0000；「活動獎品：」的顏色與大小不變。
+
+- 暫停 SEO 索引：index.html 已加入 robots 與 googlebot 的 noindex、nofollow、noarchive。
+- 新增 vercel.json，對全站回傳 X-Robots-Tag: noindex, nofollow, noarchive。
