@@ -13,7 +13,7 @@ const questions = [
 const results={
   luffy:{icon:"🍖",title:"路飛型",subtitle:"夢想比海大，肚腩都差唔多",keywords:["熱血","自由","直覺","隊友行先"],description:"你係船上最似太陽嘅人。遇到困難唔會先諗退路，而係先問：「係咪可以開戰？」你相信夢想，都相信隊友，只要係想守護嘅人，就算前面係偉大航道都照樣衝",position:"你適合企喺船頭，將大家唔敢講出口嘅夢想大聲嗌出嚟。有你喺到，冒險就唔再只係目的地，而係一場令人想跟上嘅旅程",cta:"保存你嘅路飛型結果，去LEGO® 認證專門店，將 LEGO® 喬巴帽帶返屋企啦！"},
   zoro:{icon:"⚔️",title:"索隆型",subtitle:"行錯路唔緊要，但一定要揸緊信念",keywords:["專注","可靠","冷靜","修練型"],description:"你唔係好識講啲冧人嘅說話，但應承過嘅事就一定會做到。你習慣靜靜地變強，亦都係團隊入面最硬淨嘅後盾。缺點係有時會蕩失路，唔驚！最緊要個氣場夠勁",position:"你適合做團隊入面最穩陣嘅戰力擔當。唔使講太多，你一企出嚟，大家就安心哂",cta:"保存你嘅索隆型結果，去LEGO® 認證專門店，將LEGO®喬巴帽帶返屋企啦！"},
-  nami:{icon:"🧭",title:"娜美型",subtitle:"去偉大航道，都要先睇 Budget 同地圖",keywords:["醒目","務實","觀察力強","顧全大局"],description:"你唔係會第一個衝出去嘅人，但你永遠都知道大家應該點行。你睇風向好準，無論局勢有幾亂，你都會幫大家理順成個計劃。冇咗你，呢隻船大概三日內就會迷路兼爆 Budget",position:"你適合負責睇實航線同節奏。當大家熱血過火嗰陣，你就係嗰個會將成場冒險拉返正軌嘅人",cta:"Screencap 你嘅娜美型結果，去LEGO® 認證專門店，將LEGO®喬巴帽帶返屋企啦！"},
+  nami:{icon:"🧭",title:"娜美型",subtitle:"去偉大航道，都要先睇 Budget 同地圖",keywords:["醒目","務實","觀察力強","顧全大局"],description:"你唔係會第一個衝出去嘅人，但你永遠都知道大家應該點行。你睇風向好準，無論局勢有幾亂，你都會幫大家理順成個計劃。<br />冇咗你，呢隻船大概三日內就會迷路兼爆Budget",position:"你適合負責睇實航線同節奏。當大家熱血過火嗰陣，你就係嗰個會將成場冒險拉返正軌嘅人",cta:"Screencap 你嘅娜美型結果，去LEGO® 認證專門店，將LEGO®喬巴帽帶返屋企啦！"},
   sanji:{icon:"🔥",title:"山治型",subtitle:"型唔係人設，係基本禮貌",keywords:["浪漫","講究","體貼","型格救場"],description:"你係團隊入面最識照顧氣氛嘅人。外表可能好瀟灑，但內心其實好柔軟。你相信品味，亦都相信重要嘅人值得被好好對待。有需要嗰陣，你踢走嘅唔單止係敵人，仲有壞心情",position:"你適合成為團隊入面嘅氣氛擔當。有你喺度，冒險唔止要熱血，仲要有品味",cta:"Screencap 你嘅山治型結果，去LEGO® 認證專門店，將LEGO®喬巴帽帶返屋企啦！"},
   usopp:{icon:"🎯",title:"烏索普型",subtitle:"驚還驚，但去到關鍵時刻都係超可靠",keywords:["想像力","臨場反應","把口夠勁","關鍵救援"],description:"你可能會先緊張、忍唔住駁兩句嘴、話今次搞唔掂，但到最後都係會企出嚟。你嘅腦袋成日都有奇招，把口話唔制，但身體就好誠實咁幫大家解圍",position:"你適合喺大家都以為冇辦法嗰陣，突然拎出一個超乎預期嘅解決方案。你嘅厲害之處，成日都要去到最後一刻先會俾人睇到",cta:"Screencap 你嘅烏索普型結果，去LEGO® 認證專門店，將LEGO®喬巴帽帶返屋企啦！"},
   chopper:{icon:"💙",title:"喬巴型",subtitle:"把口就話自己唔開心，頂帽其實已經開心到飛起",keywords:["療癒","善良","認真","守護隊友"],description:"你係大家嘅補血站，亦都係船上最想保護別人嘅人。你好在意隊友嘅狀態，會默默記住每個人嘅需要。俾人讚嗰陣可能會嘴硬，但一早就心花怒放",position:"你適合成為大家最有安全感嘅存在。冒險路上有你喺度，就算受傷、跌低，或者迷失方向，你都會撐住大家",cta:"Screencap 你嘅喬巴型結果，去 LEGO® 認證專門店，將 LEGO®喬巴帽帶返屋企啦！"}
@@ -61,7 +61,7 @@ function renderResult(){
   avatar.innerHTML = artSrc ? `<img src="${artSrc}" alt="${r.title}角色圖">` : '';
   $('#result-title').textContent=r.title;
   $('#result-subtitle').textContent=r.subtitle;
-  $('#result-description').textContent=r.description;
+  $('#result-description').innerHTML=r.description;
   $('#result-position').innerHTML=r.position;
   $('#result-keywords').innerHTML=['<span class="keyword-label">人格關鍵字</span>',...r.keywords.map(k=>`<span>${k}</span>`)].join('');
   const shareNote = $('#result-share-note');
