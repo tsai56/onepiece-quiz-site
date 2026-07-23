@@ -569,3 +569,9 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
 .result-protection-text p:last-child{
   margin-bottom:0;
 }
+
+
+/* Activity rules protection text color only */
+#screen-rules .activity-protection-text{
+  color:#999999;
+}
