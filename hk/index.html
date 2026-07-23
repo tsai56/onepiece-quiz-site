@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>LEGO® One Piece 偉大航道測驗｜搵出你嘅草帽海賊團人格</title>
+  <meta name="description" content="完成 8 題 LEGO® One Piece 人格測驗，搵出同你最似嘅草帽海賊團船員；截圖或下載結果頁，去 LEGO® 認證專門店出示結果圖，就可以帶走 LEGO®喬巴帽。" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app" id="app">
+  <button class="campaign-logo-wrap" type="button" data-go="home" aria-label="返回首頁">
+      <img class="campaign-logo" src="./img/onepiece-campaign-logo.png" alt="返回首頁" />
+    </button>
+    <section class="screen active" id="screen-home" aria-labelledby="home-title">
+      <div class="ocean-bg"></div>
+      <div class="card hero-card">
+        <div class="brand-row">
+          <img class="brand-logo" src="./img/6.png" alt="航海王角色" />
+        </div>
+        <p class="eyebrow">LEGO® One Piece 偉大航道測驗！</p>
+        <h1 id="home-title">你會係邊位<br />草帽海賊團船員？</h1>
+        <p class="lead">夢想、隊友、勇氣、航線<br />你嘅冒險靈魂同邊位草帽海賊團船員最似？</p>
+        <p class="body-copy body-copy-desktop">準備好上船冒險未？<br />完成 LEGO® One Piece 人格測驗，搵出同你最似嘅草帽海賊團船員！<br />截圖或下載你嘅測驗結果頁，再去 LEGO® 認證專門店出示結果圖，<br />就可以帶走 LEGO®喬巴帽！</p>
+        <p class="body-copy body-copy-mobile">準備好上船冒險未？<br />完成 LEGO® One Piece 人格測驗<br />搵出同你最似嘅草帽海賊團船員！<br />截圖或下載你嘅測驗結果頁，再去 LEGO® 認證專門店<br />出示結果圖<br />就可以帶走 LEGO®喬巴帽！</p>
+        <button class="primary-btn" data-go="rules">開始測驗</button>
+      </div>
+      <p class="legal-footer">LEGO, the LEGO logo and the Minifigure are trademarks of the LEGO Group. ©2026 The LEGO Group. ©Eiichiro Oda/SHUEISHA ©Netflix/Tomorrow. All Rights Reserved.</p>
+    </section>
+
+    <section class="screen" id="screen-rules" aria-labelledby="rules-title">
+      <div class="card rules-card">
+        <p class="eyebrow">出航前，先睇清楚遊戲規則！</p>
+        <h2 id="rules-title">搵出你嘅草帽海賊團人格<br />LEGO®喬巴帽等你嚟拎！</h2>
+        <ol class="rules-list">
+          <li>測驗一共有 8 條問題，每題揀出最似你嘅答案</li>
+          <li>做完測驗即刻睇埋角色結果，記得截圖或下載結果頁</li>
+          <li>去到 LEGO® 認證專門店出示測驗結果圖，就可以換到 LEGO®喬巴帽</li>
+        </ol>
+        <div class="prize-box prize-box--with-image">
+          <div class="prize-box-media">
+            <img src="./img/chopper-hat-prize.png" alt="樂高®喬巴帽贈品圖" />
+          </div>
+          <div class="prize-box-body">
+            <strong>活動獎品：<br class="mobile-prize-break" /><span class="prize-name-red">LEGO®喬巴帽</span></strong>
+            <small>獎品名額：共 2,500 個</small>
+            <small>LEGO® 認證專門店：📍 朗豪坊店 📍時代廣場店 📍新城市廣場店 📍太古城中心店 📍屯門市廣場店 📍POPCORN店</small>
+            <small class="activity-protection-text">∗ 贈品數量有限，送完即止。</small>
+            <small class="activity-protection-text">∗ 每人只限參加一次，恕不接受代領或重複換領。</small>
+          </div>
+        </div>
+        <button class="primary-btn" data-go="quiz">我準備好喇，即刻啟航！</button>
+        <button class="ghost-btn" data-go="home">返回首頁</button>
+      </div>
+      <p class="legal-footer">LEGO, the LEGO logo and the Minifigure are trademarks of the LEGO Group. ©2026 The LEGO Group. ©Eiichiro Oda/SHUEISHA ©Netflix/Tomorrow. All Rights Reserved.</p>
+    </section>
+
+    <section class="screen" id="screen-quiz" aria-live="polite">
+      <div class="quiz-shell">
+        <div class="quiz-topline">
+          <span id="question-count">第 1 題 / 共 8 題</span>
+          <span>航線探索中</span>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+        <article class="card question-card">
+          <p class="eyebrow" id="question-kicker">Question 01</p>
+          <h2 id="question-title"></h2>
+          <div class="answers" id="answers"></div>
+          <p class="error-text" id="error-text" role="alert"></p>
+          <div class="nav-row">
+            <button class="ghost-btn" id="back-btn">上一題</button>
+            <button class="primary-btn" id="next-btn">下一題</button>
+          </div>
+        </article>
+      </div>
+      <p class="legal-footer">LEGO, the LEGO logo and the Minifigure are trademarks of the LEGO Group. ©2026 The LEGO Group. ©Eiichiro Oda/SHUEISHA ©Netflix/Tomorrow. All Rights Reserved.</p>
+    </section>
+
+    <section class="screen" id="screen-result" aria-labelledby="result-title">
+      <div class="result-wrap">
+        <article class="result-card" id="result-card">
+          <div class="result-map"></div>
+          <p class="eyebrow">你嘅草帽海賊團人格係</p>
+          <div class="avatar" id="result-avatar" aria-hidden="true"></div>
+          <h2 id="result-title"></h2>
+          <p class="subtitle" id="result-subtitle"></p>
+          <div class="keyword-row" id="result-keywords"></div>
+          <p class="result-desc" id="result-description"></p>
+          <div class="position-box">
+            <span>適合你嘅冒險位置</span>
+            <p id="result-position"></p>
+          </div>
+          <p class="share-note" id="result-share-note">Screencap 你嘅娜美型結果，去LEGO® 認證專門店，將LEGO®喬巴帽帶返屋企啦！</p>
+          <div class="result-protection-text">
+            <p>∗ 贈品數量有限，送完即止。</p>
+            <p>∗ 每人只限參加一次，恕不接受代領或重複換領。</p>
+          </div>
+        </article>
+        <div class="result-actions">
+          <a class="primary-btn" id="download-btn" href="./img/result-nami-final.jpg" target="_blank" rel="noopener">下載結果圖</a>
+          <button class="ghost-btn" data-go="home">再測一次</button>
+        </div>
+      </div>
+      <p class="legal-footer">LEGO, the LEGO logo and the Minifigure are trademarks of the LEGO Group. ©2026 The LEGO Group. ©Eiichiro Oda/SHUEISHA ©Netflix/Tomorrow. All Rights Reserved.</p>
+    </section>
+  </main>
+
+  <canvas id="download-canvas" width="1080" height="1920" hidden></canvas>
+  <script src="./script.js"></script>
+</body>
+</html>
