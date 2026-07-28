@@ -575,3 +575,20 @@ h2{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 22px;font-weight:1
 #screen-rules .activity-protection-text{
   color:#999999;
 }
+
+
+/* Hong Kong mobile-only typography and copy adjustments */
+@media(max-width:640px){
+  #screen-home .eyebrow{
+    letter-spacing:.01335em !important;
+  }
+  #screen-home #home-title{
+    font-size:36px !important;
+  }
+  #screen-rules #rules-title{
+    font-size:24px !important;
+  }
+  .hk-mobile-store-result{
+    white-space:nowrap;
+  }
+}
