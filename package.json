@@ -1,0 +1,13 @@
+{
+  "name": "onepiece-quiz-site",
+  "version": "1.0.0",
+  "description": "LEGO One Piece quiz site with Vercel Web Analytics",
+  "private": true,
+  "scripts": {
+    "lint": "echo 'No linting configured'",
+    "test": "echo 'No tests configured'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
