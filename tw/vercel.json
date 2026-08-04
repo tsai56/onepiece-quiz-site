@@ -1,1 +1,22 @@
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/tw/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/tw/",
+      "destination": "/tw/index.html"
+    },
+    {
+      "source": "/hk/",
+      "destination": "/hk/index.html"
+    }
+  ]
+}
