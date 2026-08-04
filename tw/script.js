@@ -65,7 +65,7 @@ function renderResult(){
   $('#result-keywords').innerHTML=['<span class="keyword-label">人格關鍵字</span>',...r.keywords.map(k=>`<span>${k}</span>`)].join('');
   const shareNote = $('#result-share-note');
   if(shareNote){
-    shareNote.textContent = `出示你的${r.title}結果圖，至樂高授權專賣店®把樂高®喬巴帽帶回家！`;
+    shareNote.textContent = `出示你的${r.title}結果圖，至樂高®授權專賣店把樂高®喬巴帽帶回家！`;
   }
   const downloadLink = $('#download-btn');
   if(downloadLink && DOWNLOAD_RESULT_FILES[key]){
