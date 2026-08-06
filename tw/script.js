@@ -45,12 +45,34 @@ const DOWNLOAD_RESULT_FILES = {
 };
 
 let current=0, answers=[], order=[];
+let quizStartedTracked = false;
+let quizCompletedTracked = false;
+
+function trackQuizEvent(name, data={}){
+  if(typeof window.va !== 'function') return;
+  window.va('event', {
+    name,
+    data: { locale: 'tw', ...data }
+  });
+}
+
+function trackQuizStarted(){
+  if(quizStartedTracked) return;
+  quizStartedTracked = true;
+  trackQuizEvent('quiz_started');
+}
+
+function trackQuizCompleted(result){
+  if(quizCompletedTracked) return;
+  quizCompletedTracked = true;
+  trackQuizEvent('quiz_completed', { result });
+}
 const $=sel=>document.querySelector(sel);
 const screens={home:$('#screen-home'),rules:$('#screen-rules'),quiz:$('#screen-quiz'),result:$('#screen-result')};
 function show(name){Object.values(screens).forEach(s=>s.classList.remove('active'));screens[name].classList.add('active');window.scrollTo(0,0);if(name==='quiz')renderQuestion()}
 function shuffle(arr){return [...arr].sort(()=>Math.random()-.5)}
-function startQuiz(){current=0;answers=[];order=questions.map(q=>shuffle(q.a));show('quiz')}
-function renderQuestion(){const q=questions[current];$('#question-count').textContent=`第 ${current+1} 題 / 共 8 題`;$('#question-kicker').textContent=`Question ${String(current+1).padStart(2,'0')}`;$('#question-title').textContent=q.q;$('#progress-fill').style.width=`${((current+1)/questions.length)*100}%`;$('#error-text').textContent='';const ans=$('#answers');ans.innerHTML='';order[current].forEach((item,i)=>{const b=document.createElement('button');b.className='answer-btn'+(answers[current]===item[0]?' selected':'');b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${item[1]}</span>`;b.onclick=()=>{answers[current]=item[0];renderQuestion()};ans.appendChild(b)});$('#back-btn').style.visibility=current===0?'hidden':'visible';$('#next-btn').textContent=current===questions.length-1?'查看我的船員人格':'下一題'}
+function startQuiz(){current=0;answers=[];order=questions.map(q=>shuffle(q.a));quizStartedTracked=false;quizCompletedTracked=false;show('quiz')}
+function renderQuestion(){const q=questions[current];$('#question-count').textContent=`第 ${current+1} 題 / 共 8 題`;$('#question-kicker').textContent=`Question ${String(current+1).padStart(2,'0')}`;$('#question-title').textContent=q.q;$('#progress-fill').style.width=`${((current+1)/questions.length)*100}%`;$('#error-text').textContent='';const ans=$('#answers');ans.innerHTML='';order[current].forEach((item,i)=>{const b=document.createElement('button');b.className='answer-btn'+(answers[current]===item[0]?' selected':'');b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${item[1]}</span>`;b.onclick=()=>{if(current===0)trackQuizStarted();answers[current]=item[0];renderQuestion()};ans.appendChild(b)});$('#back-btn').style.visibility=current===0?'hidden':'visible';$('#next-btn').textContent=current===questions.length-1?'查看我的船員人格':'下一題'}
 function computeResult(){const count={luffy:0,zoro:0,nami:0,sanji:0,usopp:0,chopper:0};answers.forEach(a=>count[a]++);const max=Math.max(...Object.values(count));const tied=Object.keys(count).filter(k=>count[k]===max);return tied.length===1?tied[0]:answers[answers.length-1]}
 function renderResult(){
   const key=computeResult();
@@ -73,6 +95,7 @@ function renderResult(){
     downloadLink.target = '_blank';
     downloadLink.rel = 'noopener';
   }
+  trackQuizCompleted(key);
   show('result')
 }
 
